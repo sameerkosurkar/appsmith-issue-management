@@ -1,0 +1,1 @@
+INSERT INTO additional_info (issue_id,info,worked_by,time_spent,created_at) VALUES ('{{(ViewSummaryTable.newRow || {}).issue_id}}','{{(ViewSummaryTable.newRow || {}).info}}','{{(ViewSummaryTable.newRow || {}).worked_by}}','{{(ViewSummaryTable.newRow || {}).time_spent}}','{{(ViewSummaryTable.newRow || {}).created_at}}')

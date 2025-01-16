@@ -1,0 +1,9 @@
+UPDATE issues SET
+		title = '{{update_form.fieldState.title.isVisible ? update_form.formData.title : update_form.sourceData.title}}',
+		description = '{{update_form.fieldState.description.isVisible ? update_form.formData.description : update_form.sourceData.description}}',
+    status = '{{update_form.fieldState.status.isVisible ? update_form.formData.status : update_form.sourceData.status}}',
+		priority = '{{update_form.fieldState.priority.isVisible ? update_form.formData.priority : update_form.sourceData.priority}}',
+		assigned_to = '{{update_form.fieldState.assigned_to.isVisible ? update_form.formData.assigned_to : update_form.sourceData.assigned_to}}',
+		attachment = '{{update_form.fieldState.attachment.isVisible ? update_form.formData.attachment : update_form.sourceData.attachment}}',
+		updated_at = NOW()
+WHERE id = {{data_table.selectedRow.id}};

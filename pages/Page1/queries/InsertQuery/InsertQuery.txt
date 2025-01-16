@@ -1,0 +1,18 @@
+INSERT INTO issues (
+	title,
+	description,
+	status,
+	priority,
+	assigned_to,
+	attachment,
+	created_at,
+	updated_at)
+VALUES (
+	'{{insert_form.formData.title}}',
+	'{{insert_form.formData.description}}',
+	'{{insert_form.formData.status}}',
+	'{{insert_form.formData.priority}}',
+	'{{insert_form.formData.assigned_to}}',
+	'{{insert_form.formData.attachment}}',
+	NOW(),
+	NOW());

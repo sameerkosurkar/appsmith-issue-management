@@ -1,0 +1,2 @@
+INSERT INTO additional_info (issue_id, info, worked_by, time_spent, created_at)
+VALUES ({{appsmith.store.selectedIssueId}}, '{{InputInfo.text}}', '{{WorkedByInfo.text}}', {{TimeSpentInfo.text}}, NOW());

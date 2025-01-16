@@ -1,0 +1,1 @@
+SELECT * FROM additional_info WHERE issue_id = {{appsmith.store.selectedIssueId}};
