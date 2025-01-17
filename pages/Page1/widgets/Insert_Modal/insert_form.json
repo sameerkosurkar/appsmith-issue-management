@@ -446,7 +446,7 @@
     "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
     "buttonVariant": "PRIMARY"
   },
-  "title": "Insert Row",
+  "title": "Create Issue",
   "topRow": 5,
   "type": "JSON_FORM_WIDGET",
   "version": 1,
