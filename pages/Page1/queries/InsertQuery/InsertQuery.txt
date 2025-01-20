@@ -1,4 +1,4 @@
-INSERT INTO issues (
+INSERT INTO issue (
 	title,
 	description,
 	status,
