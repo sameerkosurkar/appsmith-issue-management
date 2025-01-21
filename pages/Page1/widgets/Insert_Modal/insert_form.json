@@ -1,10 +1,10 @@
 {
   "animateLoading": true,
   "autoGenerateForm": true,
-  "backgroundColor": "#fff",
+  "backgroundColor": "#ffffff",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "",
-  "bottomRow": 58,
+  "bottomRow": 34,
   "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
   "childStylesheet": {
     "ARRAY": {
@@ -105,9 +105,6 @@
       "key": "boxShadow"
     },
     {
-      "key": "submitButtonStyles.buttonColor"
-    },
-    {
       "key": "submitButtonStyles.borderRadius"
     },
     {
@@ -165,9 +162,6 @@
       "key": "schema.__root_schema__.children.attachment.borderRadius"
     },
     {
-      "key": "schema.__root_schema__.children.attachment.accentColor"
-    },
-    {
       "key": "schema.__root_schema__.children.created_at.defaultValue"
     },
     {
@@ -187,6 +181,12 @@
     },
     {
       "key": "schema.__root_schema__.children.priority.borderRadius"
+    },
+    {
+      "key": "schema.__root_schema__.children.attachment.accentColor"
+    },
+    {
+      "key": "submitButtonStyles.buttonColor"
     }
   ],
   "dynamicHeight": "FIXED",
@@ -211,13 +211,15 @@
   "hideCard": false,
   "iconSVG": "/static/media/icon.6bacf7df.svg",
   "isLoading": false,
-  "isVisible": "true",
+  "isVisible": true,
   "key": "h9l9ozr8op",
   "labelTextSize": "0.875rem",
-  "leftColumn": 2,
+  "leftColumn": 11,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 4,
-  "onSubmit": "{{InsertQuery.run(\n\t() => SelectQuery.run()\n\t\t\t\t\t.then(() => closeModal('Insert_Modal')), \n\t(error) => showAlert(`Error while inserting resource!\\n ${error}`,'error'))\n}}",
+  "onSubmit": "{{ \n    UploadFileApi.run(() => {\n        // Debug: Log the API response\n        console.log('File Upload API Response:', UploadFileApi.data);\n\n        const fileUrl = UploadFileApi.data?.data?.[0]; // Extract the file URL from the API response\n        if (!fileUrl) {\n            showAlert('File upload failed. No URL received.', 'error');\n            console.error('File upload response does not contain a valid URL:', UploadFileApi.data);\n            return;\n        }\n\n        // Debug: Log the extracted file URL\n        console.log('Extracted File URL:', fileUrl);\n        showAlert(`File uploaded successfully. URL: ${fileUrl}`, 'info');\n\n        // Store the file URL temporarily and run the Insert Query\n        storeValue('uploadedFileUrl', fileUrl, () => {\n            // Debug: Confirm the file URL is stored\n            console.log('Stored File URL:', appsmith.store.uploadedFileUrl);\n\n            InsertQuery.run(\n                () => {\n                    // Debug: Log the success of Insert Query\n                    console.log('Insert Query executed successfully.');\n                    SelectQuery.run()\n                        .then(() => {\n                            // Debug: Log the success of Select Query\n                            console.log('Select Query executed successfully.');\n                            closeModal('Insert_Modal');\n                        })\n                        .catch((error) => {\n                            showAlert(`Error while fetching resources!\\n${error}`, 'error');\n                            console.error('Error during Select Query execution:', error);\n                        });\n                },\n                (error) => {\n                    showAlert(`Error while inserting resource!\\n${error}`, 'error');\n                    console.error('Error during Insert Query execution:', error);\n                }\n            );\n        });\n    }, (error) => {\n        showAlert('File upload failed. Please try again.', 'error');\n        console.error('Error during File Upload API execution:', error);\n    })\n}}",
+  "originalBottomRow": 67,
+  "originalTopRow": 14,
   "parentColumnSpace": 16.3125,
   "parentId": "9rhv3ioohq",
   "parentRowSpace": 10,
@@ -229,7 +231,7 @@
     "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
     "buttonVariant": "SECONDARY"
   },
-  "rightColumn": 61,
+  "rightColumn": 53,
   "schema": {
     "__root_schema__": {
       "accessor": "__root_schema__",
@@ -266,20 +268,25 @@
           "borderRadius": "{{((sourceData, formData, fieldState) => ((appsmith.theme.borderRadius.appBorderRadius)))(insert_form.sourceData, insert_form.formData, insert_form.fieldState)}}",
           "boxShadow": "none",
           "children": {},
+          "closeOnSelection": false,
+          "convertToISO": false,
           "dataType": "null",
+          "dateFormat": "YYYY-MM-DD HH:mm",
           "defaultValue": "{{((sourceData, formData, fieldState) => (sourceData.attachment))(insert_form.sourceData, insert_form.formData, insert_form.fieldState)}}",
-          "fieldType": "Text Input",
-          "iconAlign": "left",
+          "fieldType": "Datepicker",
           "identifier": "attachment",
           "isCustomField": false,
           "isDisabled": false,
           "isRequired": false,
-          "isSpellCheck": false,
           "isVisible": true,
           "label": "Attachment",
           "labelTextSize": "0.875rem",
+          "maxDate": "2121-12-31T18:29:00.000Z",
+          "minDate": "1920-12-31T18:30:00.000Z",
           "originalIdentifier": "attachment",
-          "position": 5
+          "position": 5,
+          "shortcuts": false,
+          "timePrecision": "minute"
         },
         "created_at": {
           "accentColor": "{{((sourceData, formData, fieldState) => ((appsmith.theme.colors.primaryColor)))(insert_form.sourceData, insert_form.formData, insert_form.fieldState)}}",
@@ -446,9 +453,10 @@
     "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
     "buttonVariant": "PRIMARY"
   },
-  "title": "Create Issue",
-  "topRow": 5,
+  "title": "",
+  "topRow": 4,
   "type": "JSON_FORM_WIDGET",
+  "useSourceData": false,
   "version": 1,
   "widgetId": "w10l8merz2",
   "widgetName": "insert_form"

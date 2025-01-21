@@ -13,6 +13,6 @@ VALUES (
 	'{{insert_form.formData.status}}',
 	'{{insert_form.formData.priority}}',
 	'{{insert_form.formData.assigned_to}}',
-	'{{insert_form.formData.attachment}}',
+	'{{appsmith.store.uploadedFileUrl}}',
 	NOW(),
 	NOW());
