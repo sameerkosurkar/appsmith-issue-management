@@ -7,7 +7,7 @@
   "children": [
     {
       "borderRadius": "0px",
-      "bottomRow": 1020,
+      "bottomRow": 590,
       "boxShadow": "none",
       "canExtend": true,
       "detachFromLayout": true,
@@ -18,7 +18,7 @@
       "isVisible": "true",
       "labelTextSize": "0.875rem",
       "leftColumn": 0,
-      "minHeight": 1028,
+      "minHeight": 590,
       "parentColumnSpace": 1,
       "parentId": "vmorzie6eq",
       "parentRowSpace": 1,
@@ -40,7 +40,7 @@
   "dynamicHeight": "FIXED",
   "dynamicPropertyPathList": [],
   "dynamicTriggerPathList": [],
-  "height": 1028,
+  "height": 590,
   "isLoading": false,
   "labelTextSize": "0.875rem",
   "leftColumn": 17,

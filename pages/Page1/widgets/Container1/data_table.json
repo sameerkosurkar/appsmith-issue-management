@@ -141,6 +141,9 @@
     },
     {
       "key": "primaryColumns.customColumn2.onClick"
+    },
+    {
+      "key": "isVisibleFilters"
     }
   ],
   "dynamicTriggerPathList": [
@@ -169,7 +172,7 @@
   "isSortable": true,
   "isVisible": "true",
   "isVisibleDownload": true,
-  "isVisibleFilters": true,
+  "isVisibleFilters": "",
   "isVisiblePagination": true,
   "isVisibleSearch": true,
   "key": "zba5qel0au",

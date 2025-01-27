@@ -4,7 +4,7 @@
   "backgroundColor": "#ffffff",
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "borderWidth": "",
-  "bottomRow": 45,
+  "bottomRow": 53,
   "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
   "childStylesheet": {
     "ARRAY": {
@@ -454,7 +454,7 @@
     "buttonVariant": "PRIMARY"
   },
   "title": "",
-  "topRow": 4,
+  "topRow": 10,
   "type": "JSON_FORM_WIDGET",
   "useSourceData": false,
   "version": 1,
